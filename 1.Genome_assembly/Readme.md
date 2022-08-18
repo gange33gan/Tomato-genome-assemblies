@@ -27,7 +27,7 @@ Create and run xxx.run.cfg
 $ {NextPolish_PATH}/nextPolish xxx.run.cfg  
 ```  
 The polished contigs are obtained after step 2.
-# Step.3 Chromosome-level scaffolds
+# Step.3 Final Assembly
 The accessions are directly guided using the Heinz 1706 assembly by Ragtag.
 ```python
 !/bin/bash
@@ -38,3 +38,4 @@ conda activate ragtag
 ragtag.py correct Heinz_1706.fasta xxx.polished.fasta -t 10
 ragtag.py scaffold Heinz_1706.fasta {Ragtag_PATH}/ragtag_output/ragtag.correct.fasta -t 10
 ```
+The chromosome-level scaffolds are obtained.
