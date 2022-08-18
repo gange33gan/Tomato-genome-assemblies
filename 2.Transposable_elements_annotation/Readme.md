@@ -49,5 +49,5 @@ sed 's/LTR\/unknown__ClassI_LTR_Copia/LTR\/Copia/' output_dir/opt_DeepTE.fasta |
 #SBATCH -N 1
 #SBATCH -n 20
 conda activate EDTA
-EDTA.pl --genome t$i.polished.fasta --step anno --species others --anno 1 --evaluate 0 -t 20
+EDTA.pl --genome t$i.polished.fasta --step anno --species others --anno 1 --evaluate 0 --overwrite 1 -t 20
 ```
