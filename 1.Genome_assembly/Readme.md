@@ -1,5 +1,5 @@
 # Step.1 Row Assembly  
-create and run contig.txt
+Create and run contig.txt
 ```python
 !/bin/bash
 #SBATCH -p v6_384
@@ -11,12 +11,14 @@ $ necat.pl correct xxx.config.txt
 $ necat.pl assemble xxx.config.txt
 $ necat.pl bridge xxx.config.txt
 ```
+The raw contigs are obtained after step.1 
 # Step.2 Polish Process
-Polishing genome after step.1 using short reads and long reads. This pipeline contains files:  
+Polishing raw contigs using short reads and long reads by NextPolish.  
+This pipeline contains files:  
 + Short reads are Illumina reads after quality control by fastp  
 + Long reads are Nanopore reads after correcting by NECAT     
 
-create and run xxx.run.cfg
+Create and run xxx.run.cfg
 ```python  
 #!/bin/bash
 #SBATCH -p v6_384
