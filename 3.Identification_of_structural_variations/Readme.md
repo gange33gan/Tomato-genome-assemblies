@@ -16,22 +16,52 @@ gzip t$i.SL4.0.delta
 ## Upload delta.gz file to Assemblytics
 
 # Merge SVs at population level using the results from Assemblytics by SURVIVOR
-## Using SURVIVOR bedtovcf
+## Creat working_dir
+```
+mkdir working_dir
+```
+
+## Using SURVIVOR convertAssemblytics  
+Transform according to the type of SVs
 ```
 #!/bin/bash
 #SBATCH -p v6_384
 #SBATCH -N 1
 #SBATCH -n 1
 conda activate survivor
+cat accession.txt | while read i
+do
+        SURVIVOR convertAssemblytics {Assemblytics_results_Path}/test$i.SL4_0.Assemblytics_structural_variants.bed 50 ${working_dir}/t$i.SL4.0.Assemblytics.SVs.vcf
+done
 ```
 
+## Extract and sort vcf according to the type of SVs
+```
+cat accession.txt | while read i
+do
+        awk '{if($5=="<DEL>")print $0}' ${working_dir}/t$i.SL4.0.Assemblytics.SVs.vcf > ${working_dir}/t$i.SL4.0.Assemblytics.del.vcf
+        awk '{if($5=="<INS>")print $0}' ${working_dir}/t$i.SL4.0.Assemblytics.SVs.vcf > ${working_dir}/t$i.SL4.0.Assemblytics.ins.vcf
+        sort -k1,1 -k2,2n ${working_dir}/t$i.SL4.0.Assemblytics.del.vcf > ${working_dir}/t$i.SL4.0.Assemblytics.del.sorted.vcf
+        sort -k1,1 -k2,2n ${working_dir}/t$i.SL4.0.Assemblytics.ins.vcf > ${working_dir}/t$i.SL4.0.Assemblytics.ins.sorted.vcf
+done
+```
 
-
+## Prepare the name file  
+```
+cat accession.txt | while read i
+do
+        echo -e  "${working_dir}/t$i.SL4.0.Assemblytics.del.sorted.vcf" >> Del.vcf.name
+        echo -e "${working_dir}/t$i.SL4.0.Assemblytics.ins.sorted.vcf" >> Ins.vcf.name
+done
+```
 ## Using SURVIVOR merge
+Merge separately according to the type of SVs.  
 ```
 #!/bin/bash
 #SBATCH -p v6_384
 #SBATCH -N 1
 #SBATCH -n 1
 conda activate survivor
+SURVIVOR merge Del.vcf.name 1000 1 1 1 1 50 tomaoto.merged.del.vcf
+SURVIVOR merge Ins.vcf.name 1000 1 1 1 1 50 tomaoto.merged.Ins.vcf
 ```
