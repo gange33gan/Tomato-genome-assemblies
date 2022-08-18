@@ -1,4 +1,4 @@
-# Step.1 Row Assembly  
+# Step.1 Raw Assembly  
 Create and run contig.txt
 ```python
 !/bin/bash
