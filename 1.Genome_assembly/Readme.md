@@ -11,7 +11,7 @@ $ necat.pl correct xxx.config.txt
 $ necat.pl assemble xxx.config.txt
 $ necat.pl bridge xxx.config.txt
 ```
-The raw contigs are obtained after step.1 
+The raw contigs are obtained after step 1. 
 # Step.2 Polish Process
 Polishing raw contigs using short reads and long reads by NextPolish.  
 This pipeline contains files:  
@@ -24,8 +24,9 @@ Create and run xxx.run.cfg
 #SBATCH -p v6_384
 #SBATCH -N 1
 #SBATCH -n 30
-$ nextPolish xxx.run.cfg  
+$ {NextPolish_PATH}/nextPolish xxx.run.cfg  
 ```  
+The polished contigs are obtained after step 2.
 # Step.3 Chromosome-level scaffolds
 The accessions are directly guided using the Heinz 1706 assembly by Ragtag.
 ```python
@@ -34,6 +35,6 @@ The accessions are directly guided using the Heinz 1706 assembly by Ragtag.
 #SBATCH -N 1
 #SBATCH -n 10
 conda activate ragtag
-ragtag.py correct Heinz_1706.fasta query.fasta -t 10
-ragtag.py scaffold Heinz_1706.fasta xxx.path.xxx/ragtag_output/ragtag.correct.fasta -t 10
+ragtag.py correct Heinz_1706.fasta xxx.polished.fasta -t 10
+ragtag.py scaffold Heinz_1706.fasta {Ragtag_PATH}/ragtag_output/ragtag.correct.fasta -t 10
 ```
