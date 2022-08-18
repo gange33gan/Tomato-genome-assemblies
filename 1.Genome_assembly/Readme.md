@@ -32,5 +32,5 @@ The accessions are directly guided using the Heinz 1706 assembly by Ragtag.
 #SBATCH -n 10
 conda activate ragtag
 ragtag.py correct Heinz_1706.fasta query.fasta -t 10
-ragtag.py scaffold Heinz_1706.fasta ./ragtag_output/ragtag.correct.fasta -t 10
+ragtag.py scaffold Heinz_1706.fasta xxx.path.xxx/ragtag_output/ragtag.correct.fasta -t 10
 ```
