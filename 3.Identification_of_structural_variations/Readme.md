@@ -62,6 +62,6 @@ Merge separately according to the type of SVs.
 #SBATCH -N 1
 #SBATCH -n 1
 conda activate survivor
-SURVIVOR merge Del.vcf.name 1000 1 1 1 1 50 tomaoto.merged.del.vcf
-SURVIVOR merge Ins.vcf.name 1000 1 1 1 1 50 tomaoto.merged.Ins.vcf
+SURVIVOR merge Del.vcf.name 1000 1 1 1 1 50 tomato.merged.del.vcf
+SURVIVOR merge Ins.vcf.name 1000 1 1 1 1 50 tomato.merged.Ins.vcf
 ```
