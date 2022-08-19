@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Before running this script, some files have been generated and some script are same in 4.Identification_of_Presence-absence_variations_sequences
-# for example, PAV.split.t$i.fa、t$i.fa.length.sorted.win500.txt
+# Before running this script, some files have been generated and some script are same in 4.Identification_of_Presence-absence_variations_sequences.
+# For example, PAV.split.t$i.fa, t$i.fa.length.sorted.win500.txt
 
 # Step1, we use Heinz_1706.fa as reference genome and align one of genome to Heinz_1706.fa, and merge Heinz_1706.fa and sequences of PAVs identified between them as basics of pan-genome
 ls t1.Heinz_1706.real.PAVs.filter.N.fa Heinz_1706.fa > merge.txt
