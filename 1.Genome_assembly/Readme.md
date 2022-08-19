@@ -1,5 +1,5 @@
 # Step.1 Raw Assembly  
-Create and run contig.txt
+Create and run contig.txt  
 t$i means difference tomato accessions
 ```python
 !/bin/bash
