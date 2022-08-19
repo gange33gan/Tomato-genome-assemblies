@@ -1,5 +1,6 @@
 # Step.1 Raw Assembly  
 Create and run contig.txt
+t$i means difference tomato accessions
 ```python
 !/bin/bash
 #SBATCH -p v6_384
