@@ -61,5 +61,5 @@ for files in sys.argv[1:]:
             x = x+listthechr[i]
         plt.pause(0.1)
     n = n+0.1
-plt.savefig("./the longest ctg.new.pdf",dpi=600)
+plt.savefig("./the name of files.pdf",dpi=600)
 plt.show()
