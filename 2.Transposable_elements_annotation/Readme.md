@@ -39,10 +39,10 @@ sed 's/LTR\/unknown__ClassI_LTR_Copia/LTR\/Copia/' ${output_dir}/opt_DeepTE.fast
 ```
 ## Merge with known LTR-RTs  
 ```python
- cat working_dir/t$i.LTR.known.fa ${output_dir}/opt_DeepTE.LTR.unknown.fa >  ${working_dir}/t$i.fa.mod.EDTA.TElib.new.fa
+ cat ${working_dir}/t$i.LTR.known.fa ${output_dir}/opt_DeepTE.LTR.unknown.fa >  ${working_dir}/t$i.fa.mod.EDTA.TElib.new.fa
  ```  
  # Run anno module of EDTA  
- Delete the original TElib.fa and soft-link its new TElib.fa to the EDTA.final folder, run
+ Delete the original TElib.fa and soft-link its new TElib.fa to the EDTA.final folder, and run
  ```python
  #!/bin/bash
 #SBATCH -p v6_384
